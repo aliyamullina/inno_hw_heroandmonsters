@@ -47,3 +47,6 @@ mypy . --disallow-untyped-calls --disallow-untyped-defs --disallow-incomplete-de
 
 ### Как отправить ответ
 Прикрепить ссылку на `merge-request` в вашем гитхаб или битбакет с Вашим решением. Нужен `merge-request` для удобства комментирования решения наставником
+
+### Стенограмма видеолекции
+Используйте `input` и `print`.
