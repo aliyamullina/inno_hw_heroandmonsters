@@ -18,15 +18,13 @@ def game():
     if answer in '1':
         print('Ты — рыцарь в фантастической стране. Задача — победить 10 чудовищ, '
               'чтобы спасти королевство от нападения и тем самым выиграть игру!')
-        while hp or attack >= 0:
-            # Рандомно вывести события из monsters(), swords(), apples()
-            # f = [monsters, swords, apples]
-            # rand_func = random.choice(f)
-            # rand_func()
-            hero_hp = apples(hp)
-            # hero_attack = swords(attack)
-            # print(hero_hp, hero_attack)
-            print(hero_hp)
+        hero_hp = hp
+        hero_attack = attack
+        while hero_hp >= 0 or attack >= 0:
+            hero_hp = apples(hero_hp)
+            swords(hero_attack)
+            
+            print(hero_hp, hero_attack)
     else:
         print('С возвращением в реальный мир!')
 
