@@ -21,7 +21,7 @@ def game():
         hero_hp = hp
         hero_attack = attack
         m_counter = monster_counter
-        while hero_hp >= 0 or hero_attack >= 0:
+        while m_counter <= 10:
             hero_hp = apples(hero_hp)
             hero_attack = swords(hero_attack)
             m_counter, hero_hp = monsters(hero_hp, hero_attack, m_counter)
