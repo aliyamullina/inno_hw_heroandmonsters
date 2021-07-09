@@ -22,8 +22,8 @@ def game():
         hero_attack = attack
         while hero_hp >= 0 or attack >= 0:
             hero_hp = apples(hero_hp)
-            swords(hero_attack)
-            
+            hero_attack = swords(hero_attack)
+
             print(hero_hp, hero_attack)
     else:
         print('С возвращением в реальный мир!')
@@ -80,20 +80,21 @@ def swords(x):
     # При взятии нового меча сила атаки рыцаря принимается равной силе атаки нового подобранного меча
 
     # Силы атаки мечей
-    sword_attack = random.randint(1, 10)
+    sword_attack = random.randint(1, 15)
 
     # Нахождение меча
-    print('МЕЧ! Найден меч с силой атаки ', sword_attack, 'Старый меч ', x)
+    print('МЕЧ! Найден меч с силой атаки:', sword_attack, '. Старый меч:', x)
 
     # Действия
-    print('1 - взять меч себе, выбросив старый или 2 - пройти мимо меча')
+    print('1 - взять меч себе (выбросив старый), 2 - пройти мимо меча')
     answer = getUserInput()
     if answer in '1':
-        x = sword_attack - x
+        x = sword_attack
         print('Новый меч в ножнах! Сила удара:', x)
         return x
     else:
         print('Проходишь мимо меча...')
+        return x
 
 
 # Яблочки
@@ -103,9 +104,9 @@ def apples(x):
     # В случае нахождения яблочка игроку не даётся выбора действия.
     # количество жизней, которое даёт яблочко
     # Должно быть увеличивающее случайное число здоровья яблочко
-    apple_hp = random.randint(1, 10)
+    apple_hp = random.randint(1, 5)
     x = x + apple_hp
-    print('Съедено яблочко. Количество жизней увеличилось на:', apple_hp, 'и равно ', x)
+    print('Съедено яблочко! Количество жизней увеличилось на:', apple_hp, 'и равно:', x)
     return x
 
 
