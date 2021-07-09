@@ -14,15 +14,19 @@ attack = 10
 # Главная функция, запустив которую начнется игра - это функция с названием game() без параметров
 def game():
     print('Текстовая игра "Герой и чудовища". Введи 1, чтобы начать! Или 2, чтобы выйти из игры.')
-    s = userInput()
-    if s in '1':
+    answer = getUserInput()
+    if answer in '1':
         print('Ты — рыцарь в фантастической стране. Задача — победить 10 чудовищ, '
               'чтобы спасти королевство от нападения и тем самым выиграть игру!')
         while hp or attack >= 0:
             # Рандомно вывести события из monsters(), swords(), apples()
-            f = [monsters, swords, apples]
-            rand_func = random.choice(f)
-            rand_func()
+            # f = [monsters, swords, apples]
+            # rand_func = random.choice(f)
+            # rand_func()
+            hero_hp = apples(hp)
+            # hero_attack = swords(attack)
+            # print(hero_hp, hero_attack)
+            print(hero_hp)
     else:
         print('С возвращением в реальный мир!')
 
@@ -45,7 +49,7 @@ def monsters():
 
     # Действия
     print('Решайся! 1 - сражаться, 2 - убежать')
-    s = userInput()
+    s = getUserInput()
     if s in '1':
         print('Сражение')
         # В случае сражения рыцарь побеждает, если число его атаки превосходит число жизней чудовища.
@@ -70,7 +74,7 @@ def monsters():
 
 
 # Мечи
-def swords():
+def swords(x):
     # Перед тем как дать игроку выбор взять меч или пройти мимо него,
     # на экран должна быть выведена любая строка, в которой присутствует слово МЕЧ,
     # а также число обозначающее его силу атаки
@@ -81,30 +85,34 @@ def swords():
     sword_attack = random.randint(1, 10)
 
     # Нахождение меча
-    print('МЕЧ! Найден меч с силой атаки ', sword_attack, 'Старый меч ', attack)
+    print('МЕЧ! Найден меч с силой атаки ', sword_attack, 'Старый меч ', x)
 
     # Действия
     print('1 - взять меч себе, выбросив старый или 2 - пройти мимо меча')
-    s = userInput()
-    if s in '1':
-        print('Новый меч в ножнах! Сила удара:', sword_attack - attack)
+    answer = getUserInput()
+    if answer in '1':
+        x = sword_attack - x
+        print('Новый меч в ножнах! Сила удара:', x)
+        return x
     else:
         print('Проходишь мимо меча...')
 
 
 # Яблочки
-def apples():
+def apples(x):
     # При обнаружении яблочка — рыцарь съедает его,
     # и узнаёт насколько он увеличил количество жизней и чему теперь равно его количество жизней.
     # В случае нахождения яблочка игроку не даётся выбора действия.
     # количество жизней, которое даёт яблочко
     # Должно быть увеличивающее случайное число здоровья яблочко
     apple_hp = random.randint(1, 10)
-    print('Съедено яблочко. Количество жизней увеличилось на:', hp - apple_hp)
+    x = x + apple_hp
+    print('Съедено яблочко. Количество жизней увеличилось на:', apple_hp, 'и равно ', x)
+    return x
 
 
 # Ввод игрока
-def userInput():
+def getUserInput():
     print('Введи цифру 1 или 2')
     while True:
         s = input()
