@@ -71,8 +71,7 @@ def monsters(x, y):
             print('ПОРАЖЕНИЕ! Чудовище оказалось сильнее в',
                   x - monster_attack, 'раз и выносливее в',
                   y - monster_hp, 'раз')
-            print('Конец игры!')
-            # gameOver()
+            gameOver()
     else:
         print('Фух! Удалось убежать!')
         return x
@@ -125,6 +124,14 @@ def getInput():
         if s in ('1', '2'):
             return s
         print('Действие не распознано. Введи еще раз 1 или 2')
+
+
+def gameOver():
+    print('Конец игры!')
+
+
+def gameWin():
+    print('Ты победил всех чудовищ!')
 
 
 game()
