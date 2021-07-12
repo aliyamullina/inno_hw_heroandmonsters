@@ -24,9 +24,16 @@ def game():
               win_count, 'чудовищ, чтобы спасти королевство от '
                          'нападения и тем самым выиграть игру!')
         while m_counter < win_count:
-            hero_hp = apples(hero_hp)
-            hero_attack = swords(hero_attack)
-            hero_hp, hero_attack, m_counter = monsters(hero_hp, hero_attack, m_counter)
+            # Рандомно вывести события из monsters(), swords(), apples()
+            events = [monsters, swords, apples]
+            current_event = random.choice(events)
+
+            if current_event == apples:
+                hero_hp = apples(hero_hp)
+            elif current_event == swords:
+                hero_attack = swords(hero_attack)
+            else:
+                hero_hp, hero_attack, m_counter = monsters(hero_hp, hero_attack, m_counter)
 
             print('Твой счет', m_counter, 'из', win_count)
 
