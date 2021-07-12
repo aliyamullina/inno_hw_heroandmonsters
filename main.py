@@ -19,7 +19,7 @@ def game():
         hero_hp = hp
         hero_attack = attack
         m_counter = monster_counter
-        win_count = 2
+        win_count = 10
         print('Ты — рыцарь в фантастической стране. Задача — победить',
               win_count, 'чудовищ, чтобы спасти королевство от '
                          'нападения и тем самым выиграть игру!')
