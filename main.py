@@ -34,8 +34,7 @@ def game():
                 hero_attack = swords(hero_attack)
             else:
                 hero_hp, hero_attack, m_counter = monsters(hero_hp, hero_attack, m_counter)
-
-            print('Твой счет', m_counter, 'из', win_count)
+                print('Твой счет', m_counter, 'из', win_count)
 
             # При победе в игре, на экран должна быть выведена любая строка,
             # в которой присутствует слово ПОБЕДА
