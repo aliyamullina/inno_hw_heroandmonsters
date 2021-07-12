@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/aliya_m/Google Диск/Innopolis/ДЗ/04 Циклы и функции/heroAndMonsters/venv"
+set -gx VIRTUAL_ENV "/Users/aliya_m/Downloads/heroAndMonsters/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

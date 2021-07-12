@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/aliya_m/Google Диск/Innopolis/ДЗ/04 Циклы и функции/heroAndMonsters/venv/bin/python" "$0" "$@"
-' '''
+#!/Users/aliya_m/Downloads/heroAndMonsters/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

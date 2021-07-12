@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/aliya_m/Google Диск/Innopolis/ДЗ/04 Циклы и функции/heroAndMonsters/venv"
+setenv VIRTUAL_ENV "/Users/aliya_m/Downloads/heroAndMonsters/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
