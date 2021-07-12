@@ -158,9 +158,9 @@ def apples(x):
 def getInput():
     print('Введи цифру 1 или 2')
     while True:
-        s = input()
-        if s in ('1', '2'):
-            return s
+        answer = input()
+        if answer in ('1', '2'):
+            return answer
         print('Действие не распознано. Введи еще раз 1 или 2')
 
 
