@@ -181,10 +181,11 @@ def apples(x: int) -> int:
     return x
 
 
-def getInput():
+def getInput() -> str:
     """Ввод игрока.
 
-    :rtype: int
+    :return: Ввод с клавиатуры
+    :rtype: str
     """
     print("Введи цифру 1 или 2")
     while True:
