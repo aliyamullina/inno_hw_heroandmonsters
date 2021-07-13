@@ -131,9 +131,10 @@ def monsters(x, y, z):
         return x, y, z
 
 
-def swords(x):
+def swords(x: int) -> int:
     """Мечи.
 
+    :rtype: int
     :type x: int
     """
     # Перед тем как дать игроку выбор взять меч или пройти мимо него,
