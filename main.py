@@ -160,7 +160,7 @@ def swords(x):
         return x
 
 
-def apples(x):
+def apples(x: int) -> int:
     """Яблочки.
 
     :type x: int
