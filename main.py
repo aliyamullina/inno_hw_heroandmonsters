@@ -1,4 +1,5 @@
 import random
+from typing import Tuple
 
 # Счетчик поверженных героем чудовищ:
 monster_counter = 0
@@ -61,13 +62,13 @@ def game() -> None:
         print("С возвращением в реальный мир!")
 
 
-def monsters(x: int, y: int, z: int) -> int:
+def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
     """Монстры.
 
     :param x: жизнь героя
     :param y: сила атаки героя
     :param z: число атакованных монстров
-    :return:
+    :return: x, y, z
     :rtype: int
     """
     # Перед тем как дать игроку выбор драться с чудовищем или убежать, на экран должна быть выведена любая строка,
@@ -138,6 +139,7 @@ def monsters(x: int, y: int, z: int) -> int:
 def swords(x: int) -> int:
     """Мечи.
 
+    :return: x
     :rtype: int
     :type x: int
     """
@@ -168,6 +170,8 @@ def swords(x: int) -> int:
 def apples(x: int) -> int:
     """Яблочки.
 
+    :return: x
+    :rtype: int
     :type x: int
     """
     # При обнаружении яблочка — рыцарь съедает его,
@@ -184,7 +188,7 @@ def apples(x: int) -> int:
 def getInput() -> str:
     """Ввод игрока.
 
-    :return: Ввод с клавиатуры
+    :return: answer
     :rtype: str
     """
     print("Введи цифру 1 или 2")
