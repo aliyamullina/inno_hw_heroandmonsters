@@ -21,7 +21,7 @@ class RpgTestCase(TestCase):
         last_io = "".join(args)
         if "БОЙ" in last_io:
             self.input = "1"
-        elif "MEЧ" in last_io:
+        elif "МЕЧ" in last_io:
             self.input = "2"
         elif "ПОБЕДА" in last_io:
             self.assertEqual(rpg.monster_counter, 10)
