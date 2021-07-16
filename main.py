@@ -31,8 +31,8 @@ def game() -> None:
         )
         while m_counter < win_count:
             # Рандомно вывести события из monsters(), swords(), apples()
-            events = [monsters, swords, apples]
-            current_event = random.choice(events)
+            events = [monsters, apples, swords]
+            current_event = random.choices(events, weights=[0.4, 0.4, 0.2])[0]
 
             if current_event == apples:
                 hero_hp = apples(hero_hp)
@@ -49,14 +49,16 @@ def game() -> None:
             # При победе над 10 чудовищами, выводится сообщение "ПОБЕДА!" (или что-то другое на ваш выбор)
             # и происходит завершение программы.
             if m_counter == win_count:
-                print("ПОБЕДА! Ты победил всех чудовищ!")
+                print("ПОБЕДА")
+                print("Ты победил всех чудовищ!")
                 quit()
 
             # Выводится сообщение «ПОРАЖЕНИЕ! игра окончена» и происходит завершение программы.
             # При поражении в игре, на экран должна быть выведена любая строка,
             # в которой присутствует слово ПОРАЖЕНИЕ
             if hero_hp == 0:
-                print("ПОРАЖЕНИЕ! Игра окончена!")
+                print("ПОРАЖЕНИЕ")
+                print("Игра окончена!")
                 quit()
     else:
         print("С возвращением в реальный мир!")
@@ -82,8 +84,9 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
     monster_attack = random.randint(1, 10)
 
     # Сражение с чудовищем:
+    print("БОЙ")
     print(
-        "БОЙ! На горизонте чудовище с",
+        "На горизонте чудовище с",
         monster_hp,
         "жизнями и с силой атаки",
         monster_attack,
@@ -153,7 +156,8 @@ def swords(x: int) -> int:
     sword_attack = random.randint(1, 15)
 
     # Нахождение меча
-    print("МЕЧ! Найден меч с силой атаки", sword_attack, "Старый меч", x)
+    print("МЕЧ")
+    print("Найден меч с силой атаки", sword_attack, "Старый меч", x)
 
     # Действия
     print("1 - взять меч себе (выбросив старый), 2 - пройти мимо меча")
@@ -199,4 +203,6 @@ def getInput() -> str:
         print("Действие не распознано. Введи еще раз 1 или 2")
 
 
+# if __name__ == "__main__":
+#     game()
 game()
