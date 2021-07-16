@@ -103,7 +103,7 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
         # но жизни снимаются.
         # В случае сражения рыцарь побеждает, если число его атаки превосходит число жизней чудовища.
         # При этом чудовище отнимает у рыцаря число жизней, соответствующее его атаке.
-        if y > monster_hp and monster_attack < x:
+        if y >= monster_hp and x > monster_attack:
             x = x - monster_attack
             z = z + 1
             print("УСПЕХ! В бою твоя жизнь сократилась до", x)
