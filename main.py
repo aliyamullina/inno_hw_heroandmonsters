@@ -106,7 +106,7 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
         if y > monster_hp and monster_attack < x:
             x = x - monster_attack
             z = z + 1
-            print("ПОБЕДА! В бою твоя жизнь сократилась до", x)
+            print("УСПЕХ! В бою твоя жизнь сократилась до", x)
             return x, y, z
         else:
             # На горизонте чудовище с 10 жизнями и с силой атаки 10 .
