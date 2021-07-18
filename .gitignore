@@ -1,3 +1,4 @@
 /.idea
 .coverage
-main2.py
+other_main_2.py
+__pycache__/
