@@ -33,7 +33,7 @@ def game() -> None:
         while m_counter < win_count:
             # Рандомно вывести события из monsters(), swords(), apples()
             events = [monsters, apples, swords]
-            current_event = random.choices(events, weights=[0.3, 0.6, 0.1])[0]
+            current_event = random.choice(random.choices(events, weights=[0.3, 0.6, 0.1]))
 
             if current_event == apples:
                 hero_hp = apples(hero_hp)
@@ -184,7 +184,7 @@ def apples(x: int) -> int:
     # В случае нахождения яблочка игроку не даётся выбора действия.
     # количество жизней, которое даёт яблочко
     # Должно быть увеличивающее случайное число здоровья яблочко
-    apple_hp = random.randint(5, 10)
+    apple_hp = random.randint(3, 5)
     x = x + apple_hp
     print("СЪЕДЕНО ЯБЛОЧКО! Количество жизней увеличилось на", apple_hp, "и равно", x)
     return x
