@@ -14,15 +14,14 @@ attack = 10
 
 def game() -> None:
     """Главная функция, запустив которую начнется игра."""
-    print('Текстовая игра "Герой и чудовища".')
     hero_hp = hp
     hero_attack = attack
     m_counter = monster_counter
     win_count = 10
     print(
-        "Ты — рыцарь в фантастической стране. Задача — победить",
-        win_count,
-        "чудовищ, чтобы спасти королевство от " "нападения и тем самым выиграть игру!",
+        f"Ты — рыцарь в фантастической стране. Задача — одолеть ",
+        str(win_count),
+        " чудовищ, чтобы спасти королевство от нападения!",
     )
     while m_counter < win_count:
         # Рандомно вывести события из monsters(), swords(), apples()
@@ -35,7 +34,7 @@ def game() -> None:
             hero_attack = swords(hero_attack)
         else:
             hero_hp, hero_attack, m_counter = monsters(hero_hp, hero_attack, m_counter)
-            print("Твой счет", m_counter, "из", win_count)
+            print(f"Твой счет ", str(m_counter), " из ", str(win_count))
 
         if m_counter == win_count:
             print("ПОБЕДА")
@@ -63,25 +62,25 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
 
     # Сражение с чудовищем:
     print(
-        "На горизонте чудовище с",
-        monster_hp,
-        "жизнями и с силой атаки",
-        monster_attack,
-        "У тебя жизнь:",
-        x,
-        "и сила атаки:",
-        y,
+        f"На горизонте чудовище с ",
+        str(monster_hp),
+        " жизнями и с силой атаки ",
+        str(monster_attack),
+        ". У тебя жизнь: ",
+        str(x),
+        " и сила атаки: ",
+        str(y),
     )
 
     # Действия
     print("БОЙ! 1 - сражаться, 2 - убежать, чтобы набраться сил")
-    answer = getInput()
+    answer = get_input()
     if answer in "1":
         print("СРАЖЕНИЕ!")
         if y >= monster_hp and x > monster_attack:
             x = x - monster_attack
             z = z + 1
-            print("УСПЕХ! В бою твоя жизнь сократилась до", x)
+            print(f"УСПЕХ! В бою твоя жизнь сократилась до ", str(x))
             return x, y, z
         else:
             x = 0
@@ -103,16 +102,16 @@ def swords(x: int) -> int:
 
     # Действия
     print(
-        "Найден МЕЧ с силой атаки",
-        sword_attack,
-        "Старый",
-        x,
-        "1 - взять себе, 2 - пройти мимо",
+        f"Найден МЕЧ с силой атаки ",
+        str(sword_attack),
+        "Старый ",
+        str(x),
+        ". 1 - взять себе, 2 - пройти мимо",
     )
-    answer = getInput()
+    answer = get_input()
     if answer in "1":
         x = sword_attack
-        print("Новая сила атаки:", x)
+        print(f"Новая сила атаки: ", str(x))
         return x
     else:
         print("Проходишь мимо...")
@@ -128,17 +127,16 @@ def apples(x: int) -> int:
     """
     apple_hp = random.randint(3, 5)
     x = x + apple_hp
-    print("ЯБЛОЧКО! Количество жизней увеличилось на", apple_hp, "и равно", x)
+    print(f"ЯБЛОЧКО! Количество жизней увеличилось на ", str(apple_hp), " и равно ", str(x))
     return x
 
 
-def getInput() -> str:
+def get_input() -> str:
     """Ввод игрока.
 
     :return: answer
     :rtype: str
     """
-    print("Введи цифру 1 или 2")
     while True:
         answer = input()
         if answer in ("1", "2"):
