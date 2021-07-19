@@ -64,7 +64,7 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
     print(
         "ЧУДОВИЩЕ! Жизнь ",
         str(monster_hp),
-        "и сила атаки ",
+        " и сила атаки ",
         str(monster_attack),
         ". Твоя жизнь ",
         str(x),
@@ -74,20 +74,20 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
 
     # Действия
     print("БОЙ! Выбери 1 - сражаться, 2 - убежать, чтобы набраться сил:")
-    answer: str = get_input()
-    if answer in "1":
+    answer = get_input(input("Ответ: "))
+    if answer == 1:
         # print("СРАЖЕНИЕ!")
         if y >= monster_hp and x > monster_attack:
             x = x - monster_attack
             z = z + 1
             print("УСПЕХ! Твоя жизнь сократилась до ", str(x))
-            return int(x), int(y), int(z)
+            return x, y, z
         else:
             x = 0
-            return int(x), int(y), int(z)
+            return x, y, z
     else:
         print("Фух! Удалось убежать!")
-        return int(x), int(y), int(z)
+        return x, y, z
 
 
 def swords(x: int) -> int:
@@ -103,14 +103,14 @@ def swords(x: int) -> int:
         str(x),
         " - старый. Выбери 1 - взять себе, 2 - пройти мимо:",
     )
-    answer: str = get_input()
-    if answer in "1":
+    answer = get_input(input("Ответ: "))
+    if answer == 1:
         x = sword_attack
         print("Сила атаки - ", str(x))
-        return int(x)
+        return x
     else:
         print("Проходишь мимо")
-        return int(x)
+        return x
 
 
 def apples(x: int) -> int:
@@ -126,13 +126,16 @@ def apples(x: int) -> int:
     return x
 
 
-def get_input() -> str:
+def get_input(answer: str) -> bool:
     """Ввод игрока."""
     while True:
-        answer = input()
-        if answer in ("1", "2"):
-            return answer
-        print("Действие не распознано. Введи еще раз 1 или 2:")
+        if answer.isdigit() and int(answer) == 1:
+            return True
+        elif answer.isdigit() and int(answer) == 2:
+            return False
+        else:
+            print("Действие не распознано. Введи еще раз 1 или 2:")
+            return get_input(input())
 
 
 if __name__ == "__main__":
