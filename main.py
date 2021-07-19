@@ -60,23 +60,20 @@ def monsters(x: int, y: int, z: int) -> Tuple[int, int, int]:
     # Силы атаки чудовищ
     monster_attack = random.randint(1, 10)
 
-    # Сражение с чудовищем:
-    print(
-        "ЧУДОВИЩЕ! Жизнь ",
-        str(monster_hp),
-        " и сила атаки ",
-        str(monster_attack),
-        ". Твоя жизнь ",
-        str(x),
-        " и сила атаки ",
-        str(y),
-    )
-
     # Действия
-    print("БОЙ! Выбери 1 - сражаться, 2 - убежать, чтобы набраться сил:")
+    print(
+        "БОЙ! Чудовище",
+        str(monster_hp),
+        "на",
+        str(monster_attack),
+        "ты",
+        str(x),
+        "на",
+        str(y),
+        "1 - сражаться, 2 - убежать:",
+    )
     answer = get_input(input("Ответ: "))
     if answer == 1:
-        # print("СРАЖЕНИЕ!")
         if y >= monster_hp and x > monster_attack:
             x = x - monster_attack
             z = z + 1
@@ -120,9 +117,9 @@ def apples(x: int) -> int:
     :rtype: int
     :type x: int
     """
-    apple_hp = random.randint(3, 5)
+    apple_hp = random.randint(10, 15)
     x = x + apple_hp
-    print("ЯБЛОЧКО! Твоя жизнь увеличилась на ", str(apple_hp), " и равно ", str(x))
+    print("ЯБЛОЧКО! Жизнь увеличилась на ", str(apple_hp), " и равно ", str(x))
     return x
 
 
